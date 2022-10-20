@@ -31,8 +31,8 @@ public class newOrder {
     @Column(length = 500)
     private String items;
 
-    @Column(length = 50)
-    private String Uid;
+    @Column(length = 500)
+    private String uid;
 
     @Column
     private LocalDate Date;

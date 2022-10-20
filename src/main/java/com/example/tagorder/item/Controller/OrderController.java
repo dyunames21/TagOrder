@@ -18,9 +18,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Random;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class OrderController {
@@ -97,7 +99,6 @@ public class OrderController {
                 if (order.isOrdering()){
                 } else {
 
-
                     neworder.setMemberId(order.getMemberId());
                     neworder.setName(order.getName()); //유효성검사도 해주면 좋긴한데...
                     neworder.setPhone(order.getPhone());
@@ -124,8 +125,8 @@ public class OrderController {
     ) {
 
         newOrder neworder = newOrderRepository.findById(orderId);
-
-        Order order = orderRepository.findById(orderId);
+        String orderUid =neworder.getUid();
+        Order order = orderRepository.findByUid(orderUid);
 
         order.setFinished(true);
         neworder.setFinished(true);
@@ -134,6 +135,7 @@ public class OrderController {
 
         newOrderRepository.delete(neworder);
         orderRepository.save(order);
+
 
         return new ResponseEntity<>(HttpStatus.OK);
         //orderRepository 내에 있던 내용을 인자값으로 전달해준다.
@@ -152,15 +154,18 @@ public class OrderController {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         }
 
+        Random random = new Random();
         int memberId = jwtService.getId(token);
         Order order = new Order();
         LocalDate currentDate = LocalDate.now();
+        String uuid = UUID.randomUUID().toString();
+
 
         order.setMemberId(memberId);
         order.setName(dto.getName()); //유효성검사도 해주면 좋긴한데...
         order.setPhone(dto.getPhone());
         order.setItems(dto.getItems());
-        order.setUid(dto.getUid());
+        order.setUid(uuid);
         order.setDate(currentDate);
         //사용자가 입력한 내용을 Dto 에 담아서 새로운 오브젝트 만들어
 

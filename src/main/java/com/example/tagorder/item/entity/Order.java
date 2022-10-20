@@ -32,8 +32,8 @@ public class Order {
     @Column(length = 500, nullable = false)
     private String items;
 
-    @Column(length = 50)
-    private String Uid;
+    @Column(length = 500)
+    private String uid;
 
     @Column
     private LocalDate date;
