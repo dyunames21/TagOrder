@@ -64,6 +64,7 @@ public class AccountController {
             cookie.setHttpOnly(true);
             //http 로만 접근 가능
             cookie.setPath("/");
+            cookie.setMaxAge(60*60*24*30);
 
             res.addCookie(cookie);
             //응답 값으로 해당 id 로 만든 토큰이 포함된 쿠키 전달
@@ -90,6 +91,7 @@ public class AccountController {
             cookie.setHttpOnly(true);
             //http 로만 접근 가능
             cookie.setPath("/");
+            cookie.setMaxAge(60*60*24*30);
 
             res.addCookie(cookie);
             //응답 값으로 해당 id 로 만든 토큰이 포함된 쿠키 전달

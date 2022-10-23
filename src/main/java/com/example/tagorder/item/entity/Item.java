@@ -20,8 +20,8 @@ public class Item {
     @Column(length = 50, nullable = false)
     private String name;
 
-    @Column(length = 100)
-    private String imgPath;
+    @Column(length = 500)
+    private String imgpath;
 
     @Column
     private int price;

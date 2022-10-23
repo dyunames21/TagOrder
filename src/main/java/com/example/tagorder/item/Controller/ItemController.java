@@ -36,12 +36,13 @@ public class ItemController {
 
         item.setName(dto.getName());
         item.setPrice(dto.getPrice());
-        item.setImgPath(dto.getImg_path());
+        item.setImgpath(dto.getImgpath());
 
         itemRepository.save(item);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 
     @PostMapping("/api/item/{itemId}/{many}")
     public ResponseEntity setItemCount(

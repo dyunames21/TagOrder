@@ -84,6 +84,16 @@ public class OrderController {
         //orderRepository 내에 있던 내용을 인자값으로 전달해준다.
     }
 
+    @GetMapping("/api/AllOrders")
+    public ResponseEntity getAllOrders(
+    ) {
+
+        List<Order> orders = orderRepository.findAll();
+
+        return new ResponseEntity<>(orders, HttpStatus.OK);
+        //orderRepository 내에 있던 내용을 인자값으로 전달해준다.
+    }
+
 
     @GetMapping("/api/seller/orders")
     public ResponseEntity SellerGetOrders(

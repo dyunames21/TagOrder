@@ -9,6 +9,6 @@ public class ItemDto {
 
     private String name;
     private int price;
-    private String img_path;
+    private String imgpath;
     private int many;
 }
