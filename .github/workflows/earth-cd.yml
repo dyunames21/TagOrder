@@ -23,7 +23,7 @@ jobs:
           character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
           mysql database: 'gallary' # Optional, default value is "test". The specified database which will be create
           mysql user: 'root' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-          mysql password: ${{MYSQL_SECRET_ACCESS_KEY}}
+          mysql password: ${{ MYSQL_SECRET_ACCESS_KEY }}
 
 
       - name: Grant execute permission for gradlew
