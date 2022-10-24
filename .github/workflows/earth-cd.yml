@@ -17,14 +17,13 @@ jobs:
         with:
           java-version: 17
 
-      - name: Set up MariaDB
-        uses: getong/mariadb-action@v1.1
+      - name: Setup MySQL
+        uses: samin/mysql-action@v1
         with:
-          character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
-          mysql database: 'gallary' # Optional, default value is "test". The specified database which will be create
-          mysql user: 'root' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-          mysql password: ${{MYSQL_SECRET_ACCESS_KEY}}
-
+          character set server: "utf8" # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
+          mysql database: "gallary" # Optional, default value is "test". The specified database which will be create
+          mysql user: "root" # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
+          mysql password: "0000"
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
