@@ -190,5 +190,21 @@ public class OrderController {
     }
 
 
+    @GetMapping("/api/nowOrders")
+    public ResponseEntity getNowOrders(
+            @CookieValue(value = "token", required = false) String token
+    ) {
+        if (!jwtService.isValid(token)) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
+        int memberId = jwtService.getId(token);
+        List<newOrder> orders = newOrderRepository.findByMemberIdOrderByIdDesc(memberId);
+
+        return new ResponseEntity<>(orders, HttpStatus.OK);
+
+    }
+
+
 
 }

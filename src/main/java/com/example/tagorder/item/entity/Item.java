@@ -23,6 +23,9 @@ public class Item {
     @Column(length = 500)
     private String imgpath;
 
+    @Column(length = 500)
+    private String imgName;
+
     @Column
     private int price;
 
