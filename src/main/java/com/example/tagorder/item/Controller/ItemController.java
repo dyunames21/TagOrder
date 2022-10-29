@@ -61,6 +61,8 @@ public class ItemController {
     public String getFile(Model model){
         return "/files/file";
     }
+
+
     @PostMapping(value = "/api/addItemSet")
     public String postFile(
             @RequestParam MultipartFile uploadFile,
@@ -84,7 +86,7 @@ public class ItemController {
 
 
         String fileName = uploadFile.getOriginalFilename();
-        File destinationFile = new File("C:/Users/DELL/Desktop/endProject/frontend/public/img/"+fileName);
+        File destinationFile = new File("C:/Users/DELL/Desktop/endProject/TagOrder/frontend/public/img/"+fileName);
         destinationFile.getParentFile().mkdir();
         uploadFile.transferTo(destinationFile);
 
