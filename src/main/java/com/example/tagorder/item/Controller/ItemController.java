@@ -86,11 +86,11 @@ public class ItemController {
 
 
         String fileName = uploadFile.getOriginalFilename();
-        File destinationFile = new File("C:/Users/DELL/Desktop/endProject/TagOrder/frontend/public/img/"+fileName);
+        File destinationFile = new File("../../../resources/img"+fileName);
         destinationFile.getParentFile().mkdir();
         uploadFile.transferTo(destinationFile);
 
-        String fullPath = "../img/" + fileName;
+        String fullPath = "../../../src/main/resources/img" + fileName;
 
         item.setImgpath(fullPath);
 
