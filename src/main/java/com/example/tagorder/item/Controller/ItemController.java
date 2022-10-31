@@ -1,15 +1,13 @@
 package com.example.tagorder.item.Controller;
 
 
+import com.example.tagorder.S3.S3Upload;
 import com.example.tagorder.dto.ItemDto;
-import com.example.tagorder.item.entity.Cart;
 import com.example.tagorder.item.entity.Item;
 import com.example.tagorder.item.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.server.ResponseStatusException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,13 +23,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
 public class ItemController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    S3Upload s3Upload;
 
     @Autowired
     ItemRepository itemRepository;
@@ -78,24 +76,29 @@ public class ItemController {
 
         Item item = new Item();
 
+
+
         item.setName(name);
         item.setPrice(price);
-        HttpSession session = request.getSession();
-        String root_path = session.getServletContext().getRealPath("/");
+        //HttpSession session = request.getSession();
+        //String root_path = session.getServletContext().getRealPath("/");
 
 
         logger.info("uploadFile: {}",uploadFile);
         System.out.println(uploadFile.getOriginalFilename());
         System.out.println(uploadFile.getName());
+        //System.out.println(root_path);
 
 
         String fileName = uploadFile.getOriginalFilename();
         //String uploadPath =root_path + fileName;
-        String uploadPath = "http://3.39.78.87:9000/home/ubuntu/BackEnd/src/main/resources/img/"+fileName;
-        File destinationFile = new File(uploadPath);
+
+        String uploadPath = s3Upload.upload(uploadFile);
         System.out.println(uploadPath);
-        destinationFile.getParentFile().mkdir();
-        uploadFile.transferTo(destinationFile);
+
+        //File destinationFile = new File(uploadPath);
+        //destinationFile.getParentFile().mkdir();
+        //uploadFile.transferTo(destinationFile);
 
         item.setImgpath(uploadPath);
 
