@@ -90,7 +90,8 @@ public class ItemController {
 
 
         String fileName = uploadFile.getOriginalFilename();
-        String uploadPath =root_path + fileName;
+        //String uploadPath =root_path + fileName;
+        String uploadPath = "http://3.39.78.87:9000/home/ubuntu/BackEnd/src/main/resources/img/"+fileName;
         File destinationFile = new File(uploadPath);
         System.out.println(uploadPath);
         destinationFile.getParentFile().mkdir();
