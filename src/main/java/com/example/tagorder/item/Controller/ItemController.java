@@ -96,7 +96,7 @@ public class ItemController {
         destinationFile.getParentFile().mkdir();
         uploadFile.transferTo(destinationFile);
 
-        item.setImgpath(uploadPath);
+        item.setImgpath("../../.."+uploadPath);
 
         String message =fileName + "is upload";
         redirectAttributes.addFlashAttribute("message",message);
