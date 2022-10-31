@@ -1,6 +1,7 @@
 package com.example.tagorder.item.Controller;
 
 
+import com.example.tagorder.SMS.certificationService;
 import com.example.tagorder.dto.OrderDto;
 import com.example.tagorder.item.entity.Cart;
 import com.example.tagorder.item.entity.Item;
@@ -11,6 +12,7 @@ import com.example.tagorder.item.repository.ItemRepository;
 import com.example.tagorder.item.repository.OrderRepository;
 import com.example.tagorder.item.repository.newOrderRepository;
 import com.example.tagorder.item.service.JwtService;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -132,9 +134,10 @@ public class OrderController {
     @PostMapping("/api/seller/orders/{orderId}")
     public ResponseEntity ComOrders(
             @PathVariable("orderId") int orderId
-    ) {
+    ) throws CoolsmsException {
 
         newOrder neworder = newOrderRepository.findById(orderId);
+        String phone = "0"+String.valueOf(neworder.getPhone());
         String orderUid =neworder.getUid();
         Order order = orderRepository.findByUid(orderUid);
 
@@ -142,6 +145,7 @@ public class OrderController {
         neworder.setFinished(true);
         //사용자에게 주문이 완료 되었다는 데이터의 전달을
         //어떻게 할것인가?(매우 중요)
+        certificationService.certifiedPhoneNumber(phone);
 
         newOrderRepository.delete(neworder);
         orderRepository.save(order);

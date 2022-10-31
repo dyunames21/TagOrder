@@ -63,6 +63,7 @@ dependencies {
     implementation 'com.github.iamport:iamport-rest-client-java:0.2.22'
 
     implementation('org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE')
+    implementation group: 'net.nurigo', name: 'javaSDK', version: '2.2'
 }
 
 
@@ -87,4 +88,6 @@ allprojects {
         maven { url 'https://jitpack.io' }
     }
 }
+
+
 
