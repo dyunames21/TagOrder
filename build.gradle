@@ -58,10 +58,11 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
     implementation 'commons-io:commons-io:2.6'
     implementation 'commons-fileupload:commons-fileupload:1.4'
-    //implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
     implementation "com.squareup.okhttp3:okhttp:4.9.1"
     implementation 'com.google.firebase:firebase-admin:9.1.0'
     implementation 'com.github.iamport:iamport-rest-client-java:0.2.22'
+
+
 }
 
 
@@ -86,3 +87,4 @@ allprojects {
         maven { url 'https://jitpack.io' }
     }
 }
+

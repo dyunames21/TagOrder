@@ -22,6 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -68,7 +70,8 @@ public class ItemController {
             @RequestParam MultipartFile uploadFile,
             RedirectAttributes redirectAttributes,
             @RequestParam int price,
-            @RequestParam String name
+            @RequestParam String name,
+            HttpServletRequest request
     ) throws IOException {
 
 
@@ -77,7 +80,8 @@ public class ItemController {
 
         item.setName(name);
         item.setPrice(price);
-
+        HttpSession session = request.getSession();
+        String root_path = session.getServletContext().getRealPath("/");
 
 
         logger.info("uploadFile: {}",uploadFile);
@@ -86,13 +90,13 @@ public class ItemController {
 
 
         String fileName = uploadFile.getOriginalFilename();
-        File destinationFile = new File("../../../resources/img"+fileName);
+        String uploadPath =root_path + "resources/" + fileName;
+        File destinationFile = new File(uploadPath);
+        System.out.println(uploadPath);
         destinationFile.getParentFile().mkdir();
         uploadFile.transferTo(destinationFile);
 
-        String fullPath = "../../../src/main/resources/img" + fileName;
-
-        item.setImgpath(fullPath);
+        item.setImgpath(uploadPath);
 
         String message =fileName + "is upload";
         redirectAttributes.addFlashAttribute("message",message);
