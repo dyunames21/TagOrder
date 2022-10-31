@@ -90,13 +90,13 @@ public class ItemController {
 
 
         String fileName = uploadFile.getOriginalFilename();
-        String uploadPath =root_path + "resources/" + fileName;
+        String uploadPath =root_path + fileName;
         File destinationFile = new File(uploadPath);
         System.out.println(uploadPath);
         destinationFile.getParentFile().mkdir();
         uploadFile.transferTo(destinationFile);
 
-        item.setImgpath("../../.."+uploadPath);
+        item.setImgpath(uploadPath);
 
         String message =fileName + "is upload";
         redirectAttributes.addFlashAttribute("message",message);
