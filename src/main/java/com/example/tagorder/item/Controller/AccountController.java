@@ -34,7 +34,7 @@ public class AccountController {
 
 
 
-    @PostMapping("api/account/join")
+    @PostMapping("/api/account/join")
     public ResponseEntity join(@RequestBody AccountDto dto
     ){
         member account = new member();
@@ -50,7 +50,7 @@ public class AccountController {
 
 
 
-    @PostMapping("api/account/login")
+    @PostMapping("/api/account/login")
     public ResponseEntity login(@RequestBody Map<String,String> params, HttpServletRequest req, HttpServletResponse res) {
         member member = memberRepository.findByNameAndPassword(params.get("name"), params.get("password"));
 
