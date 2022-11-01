@@ -34,7 +34,7 @@ public class AccountController {
 
 
 
-    @PostMapping("/api/account/join")
+    @PostMapping("api/account/join")
     public ResponseEntity join(@RequestBody AccountDto dto
     ){
         member account = new member();
