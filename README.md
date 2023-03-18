@@ -47,24 +47,31 @@ Front URL : [link](https://github.com/dyunames21/TagOrder_Front.git)
  
  백앤드
  + Java 17
- + SpringBoot ()
+ + SpringBoot 2.7.3
  + JPA
   
  Build Tool
- + Gardle ()
+ + Gardle
  
  DataBase
- + AWS RDS:MySQL ( )
+ + AWS RDS:MySQL
  + EC2
  
  프론트엔드
- + Vue
+ +JavaScript
+ + Vue 
  + HTML/Css
  
 
-**패키지 구조**
+## 구조 및 설계
 
- **실행 화면**
+**1.패키지 구조**
+
+**2.DB 설계**
+![image](https://user-images.githubusercontent.com/50948044/226093988-f2110615-35e6-4ca5-ae19-d19382d9863a.png)
+
+
+## 실행 화면
 
 <details>
     <summary>사용자 화면</summary>
@@ -83,6 +90,10 @@ Front URL : [link](https://github.com/dyunames21/TagOrder_Front.git)
     <summary>관리자 화면</summary>
     현재 주문 리스트</br>
     <img src="https://user-images.githubusercontent.com/50948044/226093347-2fe104ec-03a3-476e-bd9f-26f8e1c7d571.png", width="500px"></br>
+    시작을 누르면 Polling을 통해 주문 감지, 파악 </br>
+    구매자가 정해 놓은 이름, 주문 메뉴 파악</br>
+    주문 진행 후 완료하기 누르면  구매자에게 문자 전달, 주문 완료</br>
+    </br>
     메뉴 실시간 CRUD</br>
     <img src="https://user-images.githubusercontent.com/50948044/226093387-399ff5eb-1b11-469c-b349-36433c9680a5.png", width="600px"></br>
     
