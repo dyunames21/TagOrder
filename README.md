@@ -38,7 +38,7 @@ Front URL : [link](https://github.com/dyunames21/TagOrder_Front.git)
  <br/>
  <br/>
  
- ![image](https://user-images.githubusercontent.com/50948044/226091088-c3ac1f5a-d815-4cce-b3d3-f1242cdc2e06.png)
+![image](https://user-images.githubusercontent.com/50948044/226091719-b454aaf0-7c7f-402a-874b-1bdf7e227468.png)
 
 
  **사용기술**
@@ -54,15 +54,40 @@ Front URL : [link](https://github.com/dyunames21/TagOrder_Front.git)
  + Gardle ()
  
  DataBase
- + MySQL ( )
+ + AWS RDS:MySQL ( )
+ + EC2
  
  프론트엔드
  + Vue
  + HTML/Css
  
- 
- 실행 화면
 
-  
- 
- 
+**패키지 구조**
+
+ **실행 화면**
+
+<details>
+    <summary>사용자 화면</summary>
+    로그인 화면</br>
+    <img src="https://user-images.githubusercontent.com/50948044/226091804-b2ddd129-0149-417f-b35f-d1bee3830136.png", width="500px"></br>
+    주문 진행</br>
+    <img src="https://user-images.githubusercontent.com/50948044/226091829-c1038776-f71f-4532-9822-a86e538f92a3.png", width="600px"></br>
+    주문 결제진행</br>
+    <img src="https://user-images.githubusercontent.com/50948044/226091861-cef1d53d-1990-4ad0-8008-2601f60eacb2.png", width="600px"></br>
+    주문 완료시 문자 발송</br>
+    <img src="https://user-images.githubusercontent.com/50948044/226093437-2cdcb6fd-f4b8-40f6-b23d-bf4f4800dc62.png", width="600px"></br>
+   
+</details>
+
+<details>
+    <summary>관리자 화면</summary>
+    현재 주문 리스트</br>
+    <img src="https://user-images.githubusercontent.com/50948044/226093347-2fe104ec-03a3-476e-bd9f-26f8e1c7d571.png", width="500px"></br>
+    메뉴 실시간 CRUD</br>
+    <img src="https://user-images.githubusercontent.com/50948044/226093387-399ff5eb-1b11-469c-b349-36433c9680a5.png", width="600px"></br>
+    
+</details>
+
+
+
+
