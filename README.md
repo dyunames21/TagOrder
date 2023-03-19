@@ -1,4 +1,4 @@
-# QR태그를 통해 접속하는 비대면 주문 및 메뉴 관리 서비스 통합 웹 어플리케이션(작성중)
+# QR태그를 통해 접속하는 비대면 주문 및 메뉴 관리 서비스 통합 웹 어플리케이션
 
 Project nickname : TagOrder
 
@@ -100,5 +100,5 @@ Front URL : [link](https://github.com/dyunames21/TagOrder_Front.git)
 </details>
 
 
-
+## 
 
