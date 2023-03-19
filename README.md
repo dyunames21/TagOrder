@@ -58,7 +58,7 @@ Front URL : [link](https://github.com/dyunames21/TagOrder_Front.git)
  + EC2
  
  프론트엔드
- +JavaScript
+ + JavaScript
  + Vue 
  + HTML/Css
  
@@ -98,7 +98,4 @@ Front URL : [link](https://github.com/dyunames21/TagOrder_Front.git)
     <img src="https://user-images.githubusercontent.com/50948044/226093387-399ff5eb-1b11-469c-b349-36433c9680a5.png", width="600px"></br>
     
 </details>
-
-
-## 
 
